@@ -1,27 +1,26 @@
 ---
-// src/pages/blog/[...slug].astro
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-// 1. 모든 마크다운 파일의 경로(ID)를 미리 생성합니다.
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map(post => ({
-    params: { slug: post.id }, // 주소창에 들어갈 ID (예: food)
-    props: { post },           // 해당 글의 데이터를 하단에 전달
+    params: { slug: post.id },
+    props: { post },
   }));
 }
 
-// 2. 전달받은 데이터를 변수에 저장합니다.
 const { post } = Astro.props;
-// 3. 마크다운 본문을 HTML로 렌더링합니다.
 const { Content } = await render(post);
 ---
 
-<Layout title={post.data.title}>
+<Layout 
+  title={post.data.title} 
+  description={post.data.description || "7곡 제면소 비빔냉면 시식기"}
+>
   <article>
     <h1>{post.data.title}</h1>
-    <p>발행일: {post.data.pubDate.toLocaleDateString()}</p>
+    <p>발행일: {post.data.pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
     <hr />
     
     <div class="content">
@@ -39,5 +38,12 @@ const { Content } = await render(post);
   }
   h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
   hr { margin: 2rem 0; border: 0; border-top: 1px solid #eee; }
-  .content :global(img) { max-width: 100%; height: auto; border-radius: 8px; }
+  /* 마크다운 내부 이미지가 튀어나가지 않게 처리 */
+  .content :global(img) { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    display: block;
+    margin: 2rem auto;
+  }
 </style>

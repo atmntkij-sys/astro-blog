@@ -1,12 +1,29 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+	title: string;
+	description?: string; // 설명 추가
+}
+
+const { title, description = "기본 블로그 설명" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} /> 
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/images/og-image.jpg" />
+		
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
