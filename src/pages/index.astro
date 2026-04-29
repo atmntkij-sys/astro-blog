@@ -7,25 +7,21 @@ const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
+
+
 <Layout title="나의 블로그">
 	<main>
-		<h1>이 글자가 보이면 배포 성공입니다!</h1>
 		<h1>블로그 포스팅 목록</h1>
-		
-		{sortedPosts.length === 0 ? (
-			<p>아직 포스팅이 없습니다. src/content/blog 폴더를 확인하세요.</p>
-		) : (
-			<ul>
-				{sortedPosts.map(post => (
-					<li>
-						<a href={`/blog/${post.slug}`}>
-							{post.data.title}
-						</a>
-						<span> - {post.data.pubDate.toLocaleDateString()}</span>
-					</li>
-				))}
-			</ul>
-		)}
+		<ul>
+			{sortedPosts.map(post => (
+				<li>
+					<a href={`/blog/${post.id}`}>
+						{post.data.title}
+					</a>
+					<span> - {post.data.pubDate.toLocaleDateString()}</span>
+				</li>
+			))}
+		</ul>
 	</main>
 </Layout>
 
@@ -37,3 +33,5 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 	a { color: #0070f3; text-decoration: none; }
 	a:hover { text-decoration: underline; }
 </style>
+
+
