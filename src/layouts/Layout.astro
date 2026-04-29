@@ -22,7 +22,9 @@ const { title, description = "기본 블로그 설명" } = Astro.props;
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content="/images/og-image.jpg" />
-		
+
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
 		<title>{title}</title>
 	</head>
 	<body>
@@ -38,3 +40,15 @@ const { title, description = "기본 블로그 설명" } = Astro.props;
 		height: 100%;
 	}
 </style>
+
+
+<script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{title}",
+    "description": "{description}",
+    "author": { "@type": "Person", "name": "Injae Web" },
+    "datePublished": "2026-04-29"
+  }
+</script>
