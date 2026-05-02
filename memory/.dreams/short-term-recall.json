@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-02T09:21:28.915Z",
+  "entries": {
+    "memory:memory/2026-02-18.md:1:12": {
+      "key": "memory:memory/2026-02-18.md:1:12",
+      "path": "memory/2026-02-18.md",
+      "startLine": 1,
+      "endLine": 12,
+      "source": "memory",
+      "snippet": "# 2026-02-18 - Memory Logs - **스킬 리스트 관리**: 사용자(인재)가 한글로 만든 '스킬 저장 리스트' 작성을 요청함. `SKILL_LIST.md` 생성을 제안함. - **웹 서치**: 사용자가 내게 웹 서치 스킬은 필요 없다고 언급함. - **레시피 관리**: - '설 레시피' 추가 요청이 있었음. - 기존에 저장된 된장찌개와 매운탕 레시피를 확인하여 제공함. - `/var/www/dev1/recipe.htm` 및 `recipe.md`에 정리된 레시피를 관리 중임. - **GitHub 연동**: - 워크스페이스를 `https://github.com/atmntkij-sys/openclaw.git`에 연동하기 위해 로컬 git 저장소를 초기화하고 첫 커밋을 완료함. - 원격 저장소(`origin`)를 추가했으나, `git push` 단계에서 인증 오류(fatal: could not read Username)로 대기 중임. PAT 또는 SSH 설정 필요.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5058345079421996,
+      "maxScore": 0.5058345079421996,
+      "firstRecalledAt": "2026-05-02T09:21:28.915Z",
+      "lastRecalledAt": "2026-05-02T09:21:28.915Z",
+      "queryHashes": [
+        "7624d0042982"
+      ],
+      "recallDays": [
+        "2026-05-02"
+      ],
+      "conceptTags": [
+        "skill-list.md",
+        "var/www/dev1/recipe.htm",
+        "recipe.md",
+        "logs",
+        "스킬",
+        "리스트",
+        "관리",
+        "사용자"
+      ]
+    },
+    "memory:memory/2026-03-18.md:1:6": {
+      "key": "memory:memory/2026-03-18.md:1:6",
+      "path": "memory/2026-03-18.md",
+      "startLine": 1,
+      "endLine": 6,
+      "source": "memory",
+      "snippet": "# 2026-03-18 - 세션 시작 (15:58 UTC) - 인재가 메모리 숙지 요청 - MEMORY.md 및 daily log 생성",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.498005411028862,
+      "maxScore": 0.498005411028862,
+      "firstRecalledAt": "2026-05-02T09:21:28.915Z",
+      "lastRecalledAt": "2026-05-02T09:21:28.915Z",
+      "queryHashes": [
+        "7624d0042982"
+      ],
+      "recallDays": [
+        "2026-05-02"
+      ],
+      "conceptTags": [
+        "memory.md",
+        "세션",
+        "시작",
+        "utc",
+        "인재가",
+        "메모리",
+        "숙지",
+        "요청"
+      ]
+    },
+    "memory:memory/2026-04-07.md:1:20": {
+      "key": "memory:memory/2026-04-07.md:1:20",
+      "path": "memory/2026-04-07.md",
+      "startLine": 1,
+      "endLine": 20,
+      "source": "memory",
+      "snippet": "# 2026-04-07 Memory Flush ## 7번 서버 방화벽 및 Keepalived HA 사고 사례 분석 (인재님 전수) - **근본 원인**: UFW의 `default deny` 정책이 Keepalived의 생존 신호(VRRP Heartbeat, 프로토콜 112)를 차단하여 Split-brain 현상 발생 및 네트워크 라우팅 붕괴. - **주요 장애 증상**: VIP 점유권 충돌, 루프백(127.0.0.1) 차단으로 인한 내부 프로세스(Apache-MariaDB/PHP-FPM) 간 통신 단절. - **철칙 (HA 클러스터 환경)**: 1. `sudo ufw insert 1 allow proto vrrp from any` (또는 proto 112) 규칙을 최우선으로 삽입할 것. 2. `sudo ufw allow in on lo` (루프백 허용) 필수 적용. 3. 작업 전 서버가 독립형인지 클러스터(Keepalived 사용)인지 반드시 확인. 4. 방화벽 적용 직후 내부 서비스 접속 테스트 및 VIP 동기화 상태 점검 필수. ## 서버 정보 - **10번 서버(Master)**: IP `192.168.0.7` - **7번 서버(Backup/Security)**: 10번 서버(Master, 192.168.0.10)로부터의 통신 신뢰 및 외부 8501 포트 차단 설정. ## 작업 진행 현황 - `SERVER_M",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4735771149396896,
+      "maxScore": 0.4735771149396896,
+      "firstRecalledAt": "2026-05-02T09:21:28.915Z",
+      "lastRecalledAt": "2026-05-02T09:21:28.915Z",
+      "queryHashes": [
+        "7624d0042982"
+      ],
+      "recallDays": [
+        "2026-05-02"
+      ],
+      "conceptTags": [
+        "backup",
+        "네트워크",
+        "split-brain",
+        "127.0.0.1",
+        "apache-mariadb/php-fpm",
+        "192.168.0.7",
+        "backup/security",
+        "192.168.0.10"
+      ]
+    }
+  }
+}

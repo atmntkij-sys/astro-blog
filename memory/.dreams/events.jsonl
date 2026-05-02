@@ -1,0 +1,1 @@
+{"type":"memory.recall.recorded","timestamp":"2026-05-02T09:21:28.915Z","query":"메모리 스킬 로드","resultCount":3,"results":[{"path":"memory/2026-02-18.md","startLine":1,"endLine":12,"score":0.5058345079421996},{"path":"memory/2026-03-18.md","startLine":1,"endLine":6,"score":0.498005411028862},{"path":"memory/2026-04-07.md","startLine":1,"endLine":20,"score":0.4735771149396896}]}
